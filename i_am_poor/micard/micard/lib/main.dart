@@ -17,11 +17,22 @@ class MyApp extends StatelessWidget {
               backgroundImage: AssetImage('images/hisoka.jpg'),
             ),
             Text(
-              'hisoka',
+              'hyskoa',
               style: TextStyle(
+                fontFamily: 'Pacifico',
                 fontSize: 40.0,
                 color: Colors.white,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w600,
+              )
+            ),
+            Text(
+              'STRONG WARRIOR',
+              style: TextStyle(
+                fontFamily: 'Source Sans Pro',
+                color: Colors.teal.shade100,
+                fontSize: 20.0,
+                letterSpacing: 2.5,
+                fontWeight: FontWeight.bold,
               )
             )
           ],),
