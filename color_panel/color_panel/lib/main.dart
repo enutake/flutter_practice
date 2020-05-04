@@ -25,8 +25,8 @@ class MyHome extends StatelessWidget {
     final Size size        = MediaQuery.of(context).size;
     final double width     = size.width;
     final double height    = size.height;
-    final num dividableNum = 3;
-    final rectangleSize    = width / dividableNum;
+    final int dividableNum = 3;
+    final double rectangleSize    = width / dividableNum;
     final int columnLength = height ~/ rectangleSize;
 
     return Scaffold(
