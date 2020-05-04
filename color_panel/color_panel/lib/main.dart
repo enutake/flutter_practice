@@ -6,8 +6,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final String title = 'Color Panel';
     return MaterialApp(
-      title: 'Color Panel',
+      title: title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -17,29 +18,28 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHome extends StatelessWidget {
+  final String title = 'Color Panel';
+
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    double width = size.width;
+    final Size size        = MediaQuery.of(context).size;
+    final double width     = size.width;
+    final double height    = size.height;
+    final num dividableNum = 3;
+    final rectangleSize    = width / dividableNum;
+    final int columnLength = height ~/ rectangleSize;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Color Panel'),),
+      appBar: AppBar(title: Text(title),),
       body: SafeArea(
         child: Column(
-          children: <Widget>[
-            row(size: width),
-            row(size: width),
-            row(size: width),
-            row(size: width),
-            row(size: width),
-          ],
+          children: List.generate(columnLength, (i) => row(rectangleSize: rectangleSize)),
         ),
       ),
     );
   }
 
-  Container row({size = 240}) {
-    final num dividableNum = 3;
-    final rectangleSize = size/dividableNum;
+  Container row({rectangleSize = 80}) {
     return Container(
       child: Row(
         children: <Widget>[
