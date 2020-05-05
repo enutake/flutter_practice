@@ -30,6 +30,11 @@ class ListState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("メモ帳"),),
+      body: ListView(
+        children: <Widget>[
+          memoList(),
+        ],
+      ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -57,4 +62,79 @@ class ListState extends State<MyHomePage> {
       ),
     );
   }
+
+  Widget memoList() {
+    return Column(
+      children: <Widget>[
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+        memo(),
+      ],
+    );
+  }
+
+  Widget memo() {
+    return InkWell(
+      onTap: (){},
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey[300],
+            width: 1,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            title(),
+            modifiedAt()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget title() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Text.rich(
+          TextSpan(
+            text: "タイトルタイトルタイトル",
+            style: TextStyle(
+              fontSize: 16,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget modifiedAt() {
+    return Container(
+      padding: EdgeInsets.only(top: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Text.rich(
+            TextSpan(
+              text: "2020/05/04 18:05",
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 }
