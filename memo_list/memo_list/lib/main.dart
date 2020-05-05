@@ -64,23 +64,22 @@ class ListState extends State<MyHomePage> {
   }
 
   Widget memoList() {
+    var memoList = [
+      {
+        "title": "タイトル1",
+        "time": "2020/05/05 18:32"
+      },
+      {
+        "title": "タイトル2",
+        "time": "2020/04/04 18:32"
+      },
+      {
+        "title": "タイトル3",
+        "time": "2020/04/03 18:32"
+      },
+    ];
     return Column(
-      children: <Widget>[
-        memo(title: "タイトルだよー", time: "2020/05/05 16:41"),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-        memo(),
-      ],
+      children: List.generate(memoList.length, (i) => memo(title: memoList[i]["title"], time: memoList[i]["time"]))
     );
   }
 
