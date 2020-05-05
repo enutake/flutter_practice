@@ -32,11 +32,26 @@ class ListState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("メモ帳"),),
-      body: ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return Text(listItem[index]);
-          },
-          itemCount: listItem.length,),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text("Drawer Header"),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text("ホーム"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("ユーザー設定"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
