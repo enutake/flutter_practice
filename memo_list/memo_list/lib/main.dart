@@ -66,7 +66,7 @@ class ListState extends State<MyHomePage> {
   Widget memoList() {
     return Column(
       children: <Widget>[
-        memo(),
+        memo(title: "タイトルだよー", time: "2020/05/05 16:41"),
         memo(),
         memo(),
         memo(),
@@ -84,7 +84,7 @@ class ListState extends State<MyHomePage> {
     );
   }
 
-  Widget memo() {
+  Widget memo({String title = "タイトルタイトルタイトル", String time = "2020/05/04 18:05"}) {
     return InkWell(
       onTap: (){},
       child: Container(
@@ -97,21 +97,21 @@ class ListState extends State<MyHomePage> {
         ),
         child: Column(
           children: <Widget>[
-            title(),
-            modifiedAt()
+            memoTitle(title: title),
+            modifiedAt(time: time)
           ],
         ),
       ),
     );
   }
 
-  Widget title() {
+  Widget memoTitle({String title}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text.rich(
           TextSpan(
-            text: "タイトルタイトルタイトル",
+            text: title,
             style: TextStyle(
               fontSize: 16,
             ),
@@ -121,7 +121,7 @@ class ListState extends State<MyHomePage> {
     );
   }
 
-  Widget modifiedAt() {
+  Widget modifiedAt({String time}) {
     return Container(
       padding: EdgeInsets.only(top: 15),
       child: Row(
@@ -129,7 +129,7 @@ class ListState extends State<MyHomePage> {
         children: <Widget>[
           Text.rich(
             TextSpan(
-              text: "2020/05/04 18:05",
+              text: time,
             ),
           ),
         ],
