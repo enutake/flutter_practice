@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.indigo[900],
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -26,8 +26,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class ListState extends State<MyHomePage> {
-  var listItem = ["one", "two", "three"];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,18 +34,23 @@ class ListState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-              child: Text("Drawer Header"),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.indigo[900],
               ),
             ),
             ListTile(
               title: Text("ホーム"),
               trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                print("tap!");
+              },
             ),
             ListTile(
               title: Text("ユーザー設定"),
               trailing: Icon(Icons.arrow_forward),
+              onTap: () {
+                print("tap!");
+              },
             ),
           ],
         ),
